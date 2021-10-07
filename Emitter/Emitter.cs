@@ -272,8 +272,8 @@ namespace Emitter
 
                     // Call the response handler we have registered previously
                     // TODO: get rid of the handler afterwards, or refac keygen
-                    if (this.KeygenHandlers.ContainsKey(response.Channel))
-                        ((KeygenHandler)this.KeygenHandlers[response.Channel])(response);
+                    if (response.RequestId!=null&&this.KeygenHandlers.ContainsKey((ushort)response.RequestId))
+                        ((KeygenHandler)this.KeygenHandlers[(ushort)response.RequestId])(response);
                     return;
                 }
 

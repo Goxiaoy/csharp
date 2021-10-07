@@ -20,7 +20,7 @@ namespace Emitter
         /// </summary>
         public void MeInfo()
         {
-            this.Publish("emitter/", "me", new byte[]{});
+            this.Publish("emitter/", "me", new byte[]{},"+1");
         }
     }
 }

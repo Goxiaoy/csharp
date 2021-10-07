@@ -38,7 +38,7 @@ namespace Emitter
             request.Name = name;
             request.Subscribe = subscribe;
 
-            this.Publish("emitter/", "link", Encoding.UTF8.GetBytes(request.ToJson()));
+            this.Publish("emitter/", "link", Encoding.UTF8.GetBytes(request.ToJson()),"+1");
         }
 
         /// <summary>

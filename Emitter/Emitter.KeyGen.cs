@@ -43,14 +43,13 @@ namespace Emitter
             request.Channel = channel;
             request.Type = securityAccess;
             request.Ttl = ttl;
-
-            // Register the handler
-            this.KeygenHandlers[channel] = handler;
-
+            
             //this.Client.Subscribe(new string[] { "emitter/keygen/" }, new byte[] { 0 });
 
             // Serialize and publish the request
-            this.Publish("emitter/", "keygen/", Encoding.UTF8.GetBytes(request.ToJson()));
+            var id = this.Publish("emitter/", "keygen/", Encoding.UTF8.GetBytes(request.ToJson()),"+1");
+            // Register the handler
+            this.KeygenHandlers[id] = handler;
         }
         #endregion KeyGen Members
     }

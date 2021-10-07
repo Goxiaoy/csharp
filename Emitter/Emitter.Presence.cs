@@ -52,7 +52,7 @@ namespace Emitter
             request.Status = status;
             request.Changes = true;
 
-            this.Publish("emitter/", "presence", Encoding.UTF8.GetBytes(request.ToJson()));
+            this.Publish("emitter/", "presence", Encoding.UTF8.GetBytes(request.ToJson()),"+1");
         }
 
         /// <summary>
